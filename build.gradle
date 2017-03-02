@@ -1,0 +1,39 @@
+//apply plugin: 'java'
+
+def parm = "11"
+
+task hl <<
+{
+	parm = "Tst"
+}
+
+hl.doFirst
+{
+	println 'First doFirst'
+}
+
+hl.doFirst
+{
+	println 'Second doFirst'
+}
+
+hl.doFirst
+{
+	println 'Third doFirst'
+}
+
+hl.doLast
+{
+	println 'First doLast'
+}
+
+hl.doLast
+{
+	println 'Second doLast'
+}
+
+task world(dependsOn: hl) <<
+{
+	def abc = parm
+	println abc
+}
